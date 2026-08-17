@@ -37,10 +37,10 @@ export default function Home() {
           <Reveal>
             <div className="eyebrow">MATH 152 &middot; Calculus &amp; Analysis &middot; KNUST BME1</div>
           </Reveal>
-          <Reveal delay={0.08}>
+          <Reveal delay={0.2}>
             <h1 className="hero-title">Everything for Calculus,<br />in one place.</h1>
           </Reveal>
-          <Reveal delay={0.16}>
+          <Reveal delay={0.26}>
             <p className="hero-sub">
               Quiz drills, mock exams, topic booklets, and a glossary that actually explains the reasoning
               — not just the formula.
@@ -48,7 +48,7 @@ export default function Home() {
               Compiled and taught by Asante.
             </p>
           </Reveal>
-          <Reveal delay={0.24}>
+          <Reveal delay={0.55}>
             <div className="hero-actions">
               <Link to="/quiz" className="btn btn-primary">Start a quiz drill</Link>
               <Link to="/learning-hub" className="btn btn-ghost">Browse resources</Link>
@@ -59,7 +59,7 @@ export default function Home() {
 
       <section className="container sections-grid">
         {SECTIONS.map((s, i) => (
-          <Reveal key={s.to} delay={i * 0.08} as="div">
+          <Reveal key={s.to} delay={i * 0.2} as="div">
             <Link to={s.to} className="section-card">
               <span className="section-tag">{s.tag}</span>
               <h2 className="section-title">{s.title}</h2>
