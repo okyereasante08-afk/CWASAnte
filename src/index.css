@@ -1,0 +1,179 @@
+/* ============================================================
+   CALCULUS WITH ASANTE — Design System (Claymorphic)
+   Syne for headings/titles, Montserrat for body text.
+   Soft puffy clay surfaces: dual-direction shadows (light from
+   top-left, shadow to bottom-right) on rounded, low-contrast
+   panels sitting on a warm paper background. Chalkboard-slate
+   remains the brand anchor, used as the "pressed in" accent color.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Brand */
+  --slate: #1f3b34;
+  --slate-soft: #2d554a;
+  --slate-tint: #e7efec;
+  --gold: #c9a24b;
+  --gold-soft: #efe1bf;
+
+  /* Neutrals — warm, slightly desaturated, clay-like */
+  --paper: #f3efe7;
+  --surface: #faf8f3;
+  --surface-raised: #ffffff;
+  --ink: #201d18;
+  --ink-soft: #57524a;
+  --ink-faint: #928c7e;
+  --line: #e5ddcf;
+
+  /* Semantic */
+  --good: #2f7a5c;
+  --good-tint: #e6f2ec;
+  --bad: #b0483f;
+  --bad-tint: #fbeceb;
+
+  /* Type */
+  --font-display: 'Syne', 'Inter', sans-serif;
+  --font-ui: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Clay shadow system — soft dual shadow, light top-left / dark bottom-right */
+  --clay-radius-sm: 14px;
+  --clay-radius: 22px;
+  --clay-radius-lg: 30px;
+
+  --clay-light: rgba(255, 255, 255, 0.75);
+  --clay-shadow: rgba(148, 133, 104, 0.28);
+  --clay-shadow-soft: rgba(148, 133, 104, 0.16);
+
+  /* Raised clay: pops off the page */
+  --clay-raised:
+    -7px -7px 16px var(--clay-light),
+    9px 9px 20px var(--clay-shadow);
+  --clay-raised-sm:
+    -4px -4px 10px var(--clay-light),
+    5px 5px 12px var(--clay-shadow);
+  /* Pressed clay: sunken/inset, for active or "pressed in" elements */
+  --clay-pressed:
+    inset 4px 4px 10px var(--clay-shadow),
+    inset -4px -4px 10px var(--clay-light);
+  --clay-hover:
+    -9px -9px 20px var(--clay-light),
+    11px 11px 26px var(--clay-shadow);
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+}
+
+::selection { background: var(--gold-soft); color: var(--ink); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* ---------- Clay surface: the core reusable claymorphic panel ---------- */
+.card {
+  background: var(--surface);
+  border-radius: var(--clay-radius);
+  box-shadow: var(--clay-raised-sm);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate-soft);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+.btn-primary {
+  background: var(--slate);
+  color: #fff;
+  box-shadow:
+    -4px -4px 10px rgba(255, 255, 255, 0.15) inset,
+    5px 5px 14px var(--clay-shadow);
+}
+.btn-primary:hover {
+  background: var(--slate-soft);
+  transform: translateY(-2px);
+  box-shadow:
+    -4px -4px 10px rgba(255, 255, 255, 0.15) inset,
+    7px 8px 18px var(--clay-shadow);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--clay-pressed);
+}
+.btn-ghost {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--clay-raised-sm);
+}
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--clay-hover);
+}
+.btn-ghost:active {
+  transform: translateY(0);
+  box-shadow: var(--clay-pressed);
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+}

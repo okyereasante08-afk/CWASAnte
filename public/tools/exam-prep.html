@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>End-of-Sem Prep Exam — 35 Questions</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.17.0/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.17.0/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.17.0/contrib/auto-render.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#161311;
+  --paper:#F2E9DA;
+  --paper-grid: rgba(22,19,17,0.05);
+
+  --clay-yellow:#FFC93C;
+  --clay-orange:#FF7A45;
+  --clay-pink:#FF6FA5;
+  --clay-blue:#4FA6FF;
+  --clay-mint:#4CE0B3;
+  --clay-purple:#B18AFF;
+  --clay-red:#FF5C5C;
+  --clay-cream:#FFF6E5;
+
+  /* Calculus with Asante! -- chalkboard-slate identity, merged in as the brand anchor */
+  --slate:#274C43;
+  --slate-hi:#5F9A80;
+  --chalk:#F4EFDD;
+
+  --radius: 26px;
+  --radius-sm: 16px;
+  --border-w: 3.5px;
+
+  --font-display: 'Archivo Black', 'Space Grotesk', sans-serif;
+  --font-ui: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*{ box-sizing:border-box; }
+html,body{
+  margin:0; padding:0; min-height:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 8px 8px, var(--paper-grid) 1.6px, transparent 1.6px) 0 0/26px 26px,
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background: var(--clay-yellow); color: var(--ink); }
+
+/* ---------- Calculus with Asante! decorative chalk symbols ---------- */
+.chalk-symbols{
+  position: fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;
+}
+.chalk-symbols span{
+  position:absolute; font-family: var(--font-display); color: var(--slate);
+  opacity: 0.07; user-select:none;
+}
+
+.wrap{ position:relative; z-index:1; max-width: 1080px; margin:0 auto; padding: 26px 18px 90px; }
+@media (max-width:640px){ .wrap{ padding: 16px 14px 70px; } }
+
+.clay{
+  background: var(--clay-cream);
+  border: var(--border-w) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 0 var(--ink);
+  position: relative;
+}
+.clay::after{
+  content:"";
+  position:absolute; inset: 5px;
+  border-radius: calc(var(--radius) - 8px);
+  background: linear-gradient(155deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 30%);
+  pointer-events:none;
+}
+
+/* ---------- header ---------- */
+header{ margin-bottom:24px; }
+.brand-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family: var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  background: var(--clay-orange); color:#fff;
+  border: var(--border-w) solid var(--ink); border-radius: 999px;
+  padding: 6px 14px 6px 10px; box-shadow: 3px 3px 0 0 var(--ink); margin-bottom: 12px;
+}
+.brand-badge .dot{ width:9px; height:9px; border-radius:50%; background:#fff; }
+
+/* ---------- Calculus with Asante! logo lockup ---------- */
+.logo-lockup{
+  display:inline-flex; align-items:center; gap:12px;
+  margin-bottom: 16px;
+  background: var(--slate);
+  border: var(--border-w) solid var(--ink);
+  border-radius: 999px;
+  padding: 8px 20px 8px 8px;
+  box-shadow: 5px 5px 0 0 var(--ink);
+}
+.logo-badge{
+  width:38px; height:38px; border-radius:50%;
+  background: var(--chalk); color: var(--slate);
+  border: 2.5px solid var(--ink);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-display); font-size:20px; flex-shrink:0;
+}
+.logo-text{ display:flex; flex-direction:column; line-height:1; }
+.logo-line1{
+  font-family: var(--font-mono); font-weight:700; font-size:10px; letter-spacing:.22em;
+  color: var(--slate-hi);
+}
+.logo-line2{
+  font-family: var(--font-display); font-size:16px; color: var(--chalk); letter-spacing:.01em;
+  margin-top:3px;
+}
+.logo-bang{ color: var(--clay-yellow); }
+
+h1{
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.2vw, 42px);
+  line-height: 1.0; margin: 0 0 10px; letter-spacing: -0.01em;
+  text-shadow: 3px 3px 0 var(--clay-blue);
+}
+.subtitle{
+  font-size:14.5px; max-width:64ch; font-weight:500;
+  background: #fff; border: 2.5px solid var(--ink); border-radius: 12px;
+  padding: 8px 14px; display:inline-block; box-shadow: 3px 3px 0 0 var(--ink);
+}
+
+@media (max-width:640px){
+  h1{ font-size: clamp(22px, 8vw, 30px); }
+  .subtitle{ font-size:13px; max-width:100%; }
+  .logo-line2{ font-size:14px; }
+  .logo-lockup{ padding:7px 16px 7px 7px; gap:9px; }
+  .logo-badge{ width:32px; height:32px; font-size:16px; }
+}
+
+/* ---------- format overview cards ---------- */
+.format-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin: 22px 0; }
+@media (max-width:800px){ .format-grid{ grid-template-columns:1fr; } }
+.format-card{
+  padding: 18px 20px; border-radius:22px;
+}
+.format-card .fnum{
+  font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  background: var(--part-color); color:#fff; display:inline-block; padding:4px 12px; border-radius:999px;
+  border: 2.5px solid var(--ink); margin-bottom:10px;
+}
+.format-card h3{ margin:0 0 6px; font-family:var(--font-display); font-size:16px; }
+.format-card p{ margin:0; font-size:12.5px; color:#5A5248; font-weight:500; line-height:1.5; }
+.format-card.p1{ --part-color: var(--clay-blue); }
+.format-card.p2{ --part-color: var(--slate); }
+.format-card.p3{ --part-color: var(--clay-mint); }
+
+/* ---------- buttons ---------- */
+.cta-row{ display:flex; gap:14px; margin: 22px 0; flex-wrap:wrap; }
+.btn{
+  font-family: var(--font-ui); font-size:14px; font-weight:700;
+  padding: 14px 28px; border-radius:18px; border: var(--border-w) solid var(--ink); cursor:pointer;
+  box-shadow: 5px 5px 0 0 var(--ink);
+  transition: transform .09s ease, box-shadow .09s ease;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.btn:hover{ transform: translate(-2px,-2px); box-shadow: 7px 7px 0 0 var(--ink); }
+.btn:active{ transform: translate(3px,3px); box-shadow: 2px 2px 0 0 var(--ink); }
+.btn-primary{ background: var(--clay-yellow); color: var(--ink); }
+.btn-ghost{ background: #fff; color: var(--ink); }
+.btn:disabled{ opacity:.4; cursor:not-allowed; transform:none; }
+
+@media (max-width:640px){
+  .cta-row{ gap:10px; margin:16px 0; }
+  .btn{ padding:12px 16px; font-size:13px; }
+}
+
+/* ---------- views ---------- */
+.view{ display:none; }
+.view.active{ display:block; animation: pop-in .22s cubic-bezier(.2,.9,.3,1.3); }
+@keyframes pop-in{ from{ opacity:0; transform: translateY(6px);} to{opacity:1; transform:none;} }
+
+/* ---------- exam topbar ---------- */
+.exam-topbar{
+  display:flex; justify-content:space-between; align-items:center; gap:14px; margin-bottom:18px; flex-wrap:wrap;
+}
+.part-pill{
+  font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+  background: var(--part-color, var(--clay-blue)); color:#fff;
+  border: 2.5px solid var(--ink); border-radius:999px; padding:8px 16px; box-shadow:3px 3px 0 0 var(--ink);
+}
+.progress-track{
+  flex:1; min-width:140px; height:16px; background:#fff; border: var(--border-w) solid var(--ink); border-radius:999px; overflow:hidden;
+}
+.progress-fill{ height:100%; background: repeating-linear-gradient(45deg, var(--clay-mint), var(--clay-mint) 10px, #1FB88C 10px, #1FB88C 20px); transition: width .3s ease; }
+.qcounter{ font-family:var(--font-mono); font-weight:700; font-size:12.5px; white-space:nowrap; }
+
+@media (max-width:640px){
+  .exam-topbar{ gap:8px; margin-bottom:14px; }
+  .part-pill{ font-size:10px; padding:6px 11px; }
+  .qcounter{ font-size:10.5px; }
+  .progress-track{ min-width:80px; height:12px; }
+}
+
+/* ---------- question card ---------- */
+.qcard{ padding: 38px 32px; min-height:320px; display:flex; flex-direction:column; }
+.qnum-badge{
+  align-self:flex-start; font-family:var(--font-display); font-size:15px;
+  background: var(--ink); color: var(--paper); border-radius:999px; width:40px; height:40px;
+  display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+  border: 2.5px solid var(--ink);
+}
+.qprompt{ font-size:22px; margin-bottom:28px; line-height:1.5; overflow-x:auto; overflow-y:hidden; padding-bottom:4px; }
+.qprompt .katex{ font-size:1.1em; }
+.qprompt .katex-display{ margin:0; }
+
+.choices{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:auto; }
+@media (max-width:640px){ .choices{ grid-template-columns:1fr; gap:10px; } }
+.choice{
+  background: #fff; border: var(--border-w) solid var(--ink); border-radius:16px;
+  box-shadow: 4px 4px 0 0 var(--ink); padding: 15px 16px; cursor:pointer;
+  display:flex; align-items:center; gap:12px; text-align:left; font-size:15.5px; font-weight:600;
+  transition: transform .08s ease, box-shadow .08s ease, background .12s ease;
+  min-width:0;
+}
+.choice .ctext{ min-width:0; overflow-x:auto; overflow-y:hidden; }
+.choice:hover{ transform: translate(-2px,-2px); box-shadow:6px 6px 0 0 var(--ink); background:var(--clay-yellow); }
+.choice.selected{ background: var(--clay-blue); color:#fff; transform:translate(-2px,-2px); box-shadow:6px 6px 0 0 var(--ink); }
+.choice .letter{
+  font-family:var(--font-mono); font-weight:700; font-size:13px; width:26px; height:26px; border-radius:50%;
+  border:2.5px solid var(--ink); background:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.choice.selected .letter{ background:var(--ink); color:var(--clay-blue); }
+
+@media (max-width:640px){
+  .qcard{ padding: 20px 16px; min-height:auto; }
+  .qprompt{ font-size:17px; margin-bottom:20px; }
+  .qprompt .katex{ font-size:1em; }
+  .qnum-badge{ width:32px; height:32px; font-size:12px; margin-bottom:14px; }
+  .choice{ padding:12px 13px; font-size:14px; gap:9px; }
+  .choice .letter{ width:22px; height:22px; font-size:11px; }
+}
+
+/* ---------- fill-in-the-blank ---------- */
+.fib-theorem-tag{
+  font-family:var(--font-mono); font-weight:700; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  background: var(--slate); color: var(--chalk); display:inline-block; padding:5px 14px; border-radius:999px;
+  border: 2.5px solid var(--ink); margin-bottom:18px;
+}
+.fib-statement{ font-size:18px; line-height:2.1; margin-bottom:26px; }
+.fib-statement .katex{ font-size:1.02em; }
+.blank-input{
+  font-family: var(--font-ui); font-weight:600; font-size:15px;
+  border: 3px solid var(--ink); border-radius:10px; padding:6px 12px;
+  background:#fff; min-width:180px; max-width:100%; box-shadow: 3px 3px 0 0 var(--ink);
+  margin: 0 2px;
+}
+.blank-input:focus{ outline:none; background: var(--clay-yellow); }
+.fib-hint{ font-family:var(--font-mono); font-size:11.5px; color:#8A7F70; font-weight:700; margin-top:auto; }
+
+/* ---------- nav controls ---------- */
+.nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:24px; gap:12px; flex-wrap:wrap; }
+.dot-nav{ display:flex; gap:6px; flex-wrap:wrap; max-width:420px; }
+.dot{
+  width:28px; height:28px; border-radius:8px; border:2.5px solid var(--ink); background:#fff;
+  font-family:var(--font-mono); font-size:10.5px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition: transform .08s ease;
+}
+.dot:hover{ transform: translateY(-2px); }
+.dot.answered{ background: var(--clay-mint); }
+.dot.current{ background: var(--ink); color:var(--paper); }
+
+@media (max-width:640px){
+  .qcard.fib-mode, .qcard{ overflow-x:hidden; }
+  .fib-statement{ font-size:15px; line-height:2.3; margin-bottom:20px; }
+  .blank-input{ min-width:130px; font-size:13px; padding:5px 9px; }
+  .fib-theorem-tag{ font-size:9.5px; padding:4px 11px; margin-bottom:14px; }
+  .fib-hint{ font-size:10px; }
+  .nav-row{ margin-top:18px; flex-direction:column; align-items:stretch; }
+  .dot-nav{ max-width:100%; order:2; justify-content:center; }
+  .dot{ width:24px; height:24px; font-size:9px; border-radius:6px; }
+  .nav-row > div:last-child{ order:1; display:flex; gap:10px; }
+  .nav-row > div:last-child .btn{ flex:1; }
+}
+
+/* ---------- results ---------- */
+.results-hero{ text-align:center; padding:44px 24px; }
+.results-hero .big-num{
+  font-family: var(--font-display); font-size:68px; line-height:1; text-shadow: 4px 4px 0 var(--clay-yellow);
+}
+.results-hero .big-label{ font-family:var(--font-mono); font-weight:700; color:#6B6259; margin-top:10px; font-size:13px; text-transform:uppercase; letter-spacing:.08em; }
+
+.part-breakdown{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:28px 0; }
+@media (max-width:700px){ .part-breakdown{ grid-template-columns:1fr; } }
+.part-score{
+  background:#fff; border: var(--border-w) solid var(--ink); border-radius:18px; padding:16px; text-align:center;
+  box-shadow: 4px 4px 0 0 var(--ink);
+}
+.part-score .plabel{ font-family:var(--font-mono); font-weight:700; font-size:10.5px; text-transform:uppercase; color:#8A7F70; margin-bottom:6px; }
+.part-score .pnum{ font-family:var(--font-display); font-size:26px; }
+
+.review-list{ display:grid; gap:12px; margin-top:20px; text-align:left; }
+.review-item{
+  background:#fff; border: var(--border-w) solid var(--ink); border-radius:18px; padding:18px;
+  box-shadow: 4px 4px 0 0 var(--ink); border-left-width:8px;
+}
+.review-item.correct{ border-left-color: var(--clay-mint); }
+.review-item.wrong{ border-left-color: var(--clay-red); }
+.review-item.skipped{ border-left-color: #ccc; }
+.review-item .rq{ font-size:15.5px; margin-bottom:8px; overflow-x:auto; overflow-y:hidden; padding-bottom:2px; }
+.review-item .rq .katex-display{ margin:0; }
+.review-item .ryour{ font-family:var(--font-mono); font-size:12px; font-weight:700; margin-bottom:4px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.review-item .rcorrect{ font-family:var(--font-mono); font-size:12px; font-weight:700; color:#1FB88C; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.review-item .rtag{
+  display:inline-block; font-family:var(--font-mono); font-size:10px; font-weight:700; text-transform:uppercase;
+  padding:2px 9px; border-radius:999px; border:2px solid var(--ink); margin-bottom:8px;
+}
+.review-item.correct .rtag{ background: var(--clay-mint); }
+.review-item.wrong .rtag{ background: var(--clay-red); color:#fff; }
+.review-item.skipped .rtag{ background: #eee; }
+
+.r-solution{
+  margin-top:12px; background: var(--slate); border: 2.5px solid var(--ink); border-radius:14px; padding:13px 16px;
+}
+.rs-label{ font-family: var(--font-mono); font-weight:700; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color: var(--clay-yellow); margin-bottom:6px; }
+.rs-body{ color: var(--chalk); font-size:13px; line-height:1.6; font-weight:500; overflow-x:auto; }
+
+@media (max-width:640px){
+  .results-hero{ padding:26px 16px; }
+  .results-hero .big-num{ font-size:46px; }
+  .part-score{ padding:12px; }
+  .part-score .pnum{ font-size:20px; }
+  .review-item{ padding:14px; }
+  .r-solution{ padding:11px 13px; }
+  .rs-body{ font-size:12px; }
+}
+
+/* ---------- footer ---------- */
+footer{
+  margin-top:50px; padding: 18px 20px; font-family: var(--font-mono); font-size:11.5px; font-weight:700;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  background:#fff; border: 2.5px solid var(--ink); border-radius:16px; box-shadow: 4px 4px 0 0 var(--ink);
+}
+
+.intro-actions{ text-align:center; padding: 10px 0 4px; }
+
+/* ---------- watch & learn (intro panel) ---------- */
+.video-panel{
+  background: var(--clay-cream); border: var(--border-w) solid var(--ink); border-radius: var(--radius);
+  box-shadow: 6px 6px 0 0 var(--ink); padding: 20px 22px; margin: 22px 0;
+}
+.video-panel-title{
+  font-family: var(--font-display); font-size:17px; margin-bottom:14px;
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+}
+.video-panel-sub{
+  font-family: var(--font-mono); font-weight:700; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em;
+  color:#8A7F70;
+}
+.video-panel-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-bottom:14px; }
+@media (max-width:700px){ .video-panel-grid{ grid-template-columns:1fr; } }
+.video-slot{
+  background:#fff; border: 2.5px solid var(--ink); border-radius:16px; padding:14px;
+  box-shadow: 3px 3px 0 0 var(--ink);
+}
+.vp-tag{
+  display:inline-block; font-family:var(--font-mono); font-weight:700; font-size:10.5px; text-transform:uppercase;
+  padding:4px 11px; border-radius:999px; border:2px solid var(--ink); margin-bottom:10px;
+}
+.video-thumb{
+  height:76px; border-radius:12px; border:2.5px solid var(--ink);
+  background: repeating-linear-gradient(135deg, var(--paper) 0 10px, #fff 10px 20px);
+  display:flex; align-items:center; justify-content:center; margin-bottom:9px;
+}
+.video-thumb .play-icon{
+  width:32px; height:32px; border-radius:50%; background: var(--clay-red); border:2.5px solid var(--ink);
+  display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px;
+}
+.video-placeholder-label{
+  font-family: var(--font-mono); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+  color:#8A7F70; background: var(--paper); border:2px dashed #C9BFA8; border-radius:999px;
+  padding:4px 10px; display:inline-block;
+}
+.video-panel-note{ margin:0; font-size:12.5px; color:#5A5248; font-weight:500; }
+.video-panel-note strong{ background: var(--clay-yellow); padding:1px 6px; border-radius:5px; border: 1.5px solid var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="chalk-symbols" id="chalkSymbols"></div>
+
+<div class="wrap">
+
+  <header>
+    <div class="logo-lockup">
+      <span class="logo-badge">&#8747;</span>
+      <div class="logo-text">
+        <span class="logo-line1">CALCULUS</span>
+        <span class="logo-line2">WITH ASANTE<span class="logo-bang">!</span></span>
+      </div>
+    </div>
+    <h1>End-of-Sem Prep Exam</h1>
+    <div class="subtitle">35 questions in the exact format of the real paper — three parts, mixed MCQ and fill-in-the-blank, timed self-check. Chale, no shortcuts here, this is the real format.</div>
+  </header>
+
+  <!-- ================= INTRO / FORMAT OVERVIEW ================= -->
+  <div class="view active" id="view-intro">
+    <div class="format-grid">
+      <div class="clay format-card p1">
+        <div class="fnum">Part 1 &middot; Q1&ndash;15</div>
+        <h3>Techniques — MCQ</h3>
+        <p>Integration by parts, substitution, partial fractions, hyperbolic/log/inverse-hyperbolic/trig/inverse-trig integrals. Derivatives, L'Hopital's Rule, implicit differentiation, trig &amp; hyperbolic derivatives.</p>
+      </div>
+      <div class="clay format-card p2">
+        <div class="fnum">Part 2 &middot; Q16&ndash;25</div>
+        <h3>Theorems — Fill in the Blank</h3>
+        <p>State key theorems from memory: Bolzano&ndash;Weierstrass, Mean Value, Intermediate Value, Rolle's, plus definitions of Cauchy, convergent, and divergent sequences. Understanding, not guessing.</p>
+      </div>
+      <div class="clay format-card p3">
+        <div class="fnum">Part 3 &middot; Q26&ndash;35</div>
+        <h3>Analysis — MCQ</h3>
+        <p>Limit points, open/closed sets, bounded sets, Cauchy sequences, limits involving $e$ and $\ln$, and piecewise function limits.</p>
+      </div>
+    </div>
+
+    <div class="video-panel">
+      <div class="video-panel-title">&#127909; Watch &amp; Learn <span class="video-panel-sub">optional — watch before you start if a part feels shaky</span></div>
+      <div class="video-panel-grid">
+        <div class="video-slot">
+          <span class="vp-tag" style="background:var(--clay-blue);">Part 1</span>
+          <div class="video-thumb"><span class="play-icon">&#9654;</span></div>
+          <span class="video-placeholder-label">Link coming soon</span>
+        </div>
+        <div class="video-slot">
+          <span class="vp-tag" style="background:var(--slate); color:var(--chalk);">Part 2</span>
+          <div class="video-thumb"><span class="play-icon">&#9654;</span></div>
+          <span class="video-placeholder-label">Link coming soon</span>
+        </div>
+        <div class="video-slot">
+          <span class="vp-tag" style="background:var(--clay-mint);">Part 3</span>
+          <div class="video-thumb"><span class="play-icon">&#9654;</span></div>
+          <span class="video-placeholder-label">Link coming soon</span>
+        </div>
+      </div>
+      <p class="video-panel-note">Building toward a full running playlist, <strong>&ldquo;Calc with Analysis&rdquo;</strong> &mdash; chale, links go here once they're picked.</p>
+    </div>
+
+    <div class="clay intro-actions" style="padding:28px 20px;">
+      <p style="font-family:var(--font-mono); font-weight:700; font-size:13px; margin:0 0 16px;">35 QUESTIONS &middot; NO TIME LIMIT BY DEFAULT &middot; FULL REVIEW AT THE END</p>
+      <div class="cta-row" style="justify-content:center;">
+        <button class="btn btn-primary" id="startExam">&#9889; Start the prep exam</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= EXAM (MCQ + FIB unified flow) ================= -->
+  <div class="view" id="view-exam">
+    <div class="exam-topbar">
+      <span class="part-pill" id="partPill">PART 1</span>
+      <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <span class="qcounter" id="qCounter">Question 1 / 35</span>
+    </div>
+
+    <div class="clay qcard" id="qcard">
+      <!-- populated by JS: either MCQ layout or FIB layout -->
+    </div>
+
+    <div class="nav-row">
+      <div class="dot-nav" id="dotNav"></div>
+      <div style="display:flex; gap:10px;">
+        <button class="btn btn-ghost" id="prevBtn">&larr; Prev</button>
+        <button class="btn btn-primary" id="nextBtn">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= RESULTS ================= -->
+  <div class="view" id="view-results">
+    <div class="clay results-hero">
+      <div class="big-num" id="finalScore">0/35</div>
+      <div class="big-label">MCQ auto-graded &middot; fill-in-the-blank needs your own review</div>
+
+      <div class="part-breakdown">
+        <div class="part-score"><div class="plabel">Part 1 — Techniques</div><div class="pnum" id="p1score">0/15</div></div>
+        <div class="part-score"><div class="plabel">Part 2 — Theorems</div><div class="pnum" id="p2score">10 self-check</div></div>
+        <div class="part-score"><div class="plabel">Part 3 — Analysis</div><div class="pnum" id="p3score">0/10</div></div>
+      </div>
+
+      <div class="cta-row" style="justify-content:center;">
+        <button class="btn btn-primary" id="retakeBtn">Retake exam</button>
+        <button class="btn btn-ghost" id="reviewToggle">Show full review</button>
+      </div>
+
+      <div class="review-list" id="reviewList" style="display:none;"></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>DEPT. OF COMPUTER ENGINEERING &middot; MATCHES THE REAL EXAM FORMAT</span>
+    <span>SHARE THIS FILE DIRECTLY &middot; NO SERVER, NO ACCOUNT, WORKS OFFLINE</span>
+  </footer>
+
+</div>
+
+<script>
+// ============================================================
+// END-OF-SEM PREP EXAM: 35 questions in 3 parts
+// Part 1 (1-15): MCQ — integration & differentiation techniques
+// Part 2 (16-25): Fill-in-the-blank — theorems & sequence definitions
+// Part 3 (26-35): MCQ — point-set topology, sequences, special limits
+// ============================================================
+
+const PART1_MCQ = [
+  { n:1, prompt:"\\displaystyle\\int x\\ln x\\,dx =", choices:["\\dfrac{x^2}{2}\\ln x - \\dfrac{x^2}{4}+C","\\dfrac{x^2}{2}\\ln x + \\dfrac{x^2}{4}+C","x^2\\ln x - x^2+C","\\dfrac{x^2}{2}\\ln x - \\dfrac{x}{2}+C"], correct:0,
+    solution:"By parts: $u=\\ln x,\\ dv=x\\,dx \\Rightarrow du=\\frac1x dx,\\ v=\\frac{x^2}{2}$. Then $\\int x\\ln x\\,dx=\\frac{x^2}{2}\\ln x-\\int\\frac{x}{2}dx=\\frac{x^2}{2}\\ln x-\\frac{x^2}{4}+C$." },
+  { n:2, prompt:"\\displaystyle\\int \\dfrac{dx}{\\sqrt{9-x^2}} =", choices:["\\arcsin\\dfrac{x}{3}+C","3\\arcsin\\dfrac{x}{3}+C","\\arctan\\dfrac{x}{3}+C","\\dfrac{1}{3}\\arcsin\\dfrac{x}{3}+C"], correct:0,
+    solution:"Standard form $\\int\\frac{dx}{\\sqrt{a^2-x^2}}=\\arcsin\\frac{x}{a}+C$ with $a=3$: $\\arcsin\\frac{x}{3}+C$." },
+  { n:3, prompt:"\\displaystyle\\int \\dfrac{2x+3}{x^2-9}\\,dx \\text{ (partial fractions) has denominator factors}", choices:["(x-3)(x+3)","(x-9)(x+1)","(x-3)^2","x(x-9)"], correct:0,
+    solution:"$x^2-9$ is a difference of squares: $x^2-9=(x-3)(x+3)$." },
+  { n:4, prompt:"\\displaystyle\\int \\cosh(2x)\\,dx =", choices:["\\dfrac{1}{2}\\sinh(2x)+C","2\\sinh(2x)+C","\\sinh(2x)+C","\\dfrac{1}{2}\\cosh(2x)+C"], correct:0,
+    solution:"Let $u=2x,\\ du=2\\,dx$. Then $\\int\\cosh u\\cdot\\frac{du}{2}=\\frac12\\sinh u+C=\\frac12\\sinh(2x)+C$." },
+  { n:5, prompt:"\\displaystyle\\int \\dfrac{dx}{x\\ln x} =", choices:["\\ln|\\ln x|+C","\\dfrac{(\\ln x)^2}{2}+C","\\ln(x\\ln x)+C","\\dfrac{1}{\\ln x}+C"], correct:0,
+    solution:"Let $u=\\ln x,\\ du=\\frac1x dx$. Then $\\int\\frac{du}{u}=\\ln|u|+C=\\ln|\\ln x|+C$." },
+  { n:6, prompt:"\\displaystyle\\int \\dfrac{dx}{\\sqrt{x^2-4}} =", choices:["\\cosh^{-1}\\dfrac{x}{2}+C","\\sinh^{-1}\\dfrac{x}{2}+C","\\tanh^{-1}\\dfrac{x}{2}+C","\\arcsin\\dfrac{x}{2}+C"], correct:0,
+    solution:"Standard form $\\int\\frac{dx}{\\sqrt{x^2-a^2}}=\\cosh^{-1}\\frac{x}{a}+C$ with $a=2$: $\\cosh^{-1}\\frac{x}{2}+C$." },
+  { n:7, prompt:"\\displaystyle\\int \\sec x \\, dx =", choices:["\\ln|\\sec x+\\tan x|+C","\\ln|\\sec x - \\tan x|+C","\\sec x \\tan x+C","\\tan x + C"], correct:0,
+    solution:"Multiply by $\\frac{\\sec x+\\tan x}{\\sec x+\\tan x}$; the numerator becomes the derivative of the denominator, giving $\\ln|\\sec x+\\tan x|+C$." },
+  { n:8, prompt:"\\displaystyle\\int \\dfrac{dx}{x\\sqrt{x^2-16}} =", choices:["\\dfrac{1}{4}\\operatorname{arcsec}\\dfrac{|x|}{4}+C","\\operatorname{arcsec}\\dfrac{|x|}{4}+C","4\\operatorname{arcsec}\\dfrac{|x|}{4}+C","\\dfrac{1}{16}\\operatorname{arcsec}\\dfrac{|x|}{4}+C"], correct:0,
+    solution:"Standard form $\\int\\frac{dx}{x\\sqrt{x^2-a^2}}=\\frac1a\\operatorname{arcsec}\\frac{|x|}{a}+C$ with $a=4$: $\\frac14\\operatorname{arcsec}\\frac{|x|}{4}+C$." },
+  { n:9, prompt:"\\text{Using } u=\\sqrt{x}, \\displaystyle\\int \\dfrac{e^{\\sqrt{x}}}{\\sqrt{x}}\\,dx =", choices:["2e^{\\sqrt{x}}+C","e^{\\sqrt{x}}+C","\\dfrac{1}{2}e^{\\sqrt{x}}+C","2\\sqrt{x}\\,e^{\\sqrt{x}}+C"], correct:0,
+    solution:"Let $u=\\sqrt{x},\\ du=\\frac{1}{2\\sqrt{x}}dx \\Rightarrow 2\\,du=\\frac{dx}{\\sqrt{x}}$. Then $\\int e^u\\cdot2\\,du=2e^u+C=2e^{\\sqrt{x}}+C$." },
+  { n:10, prompt:"\\dfrac{d}{dx}\\left[\\tan^{-1}(3x)\\right] =", choices:["\\dfrac{3}{1+9x^2}","\\dfrac{1}{1+9x^2}","\\dfrac{3}{1+3x^2}","\\dfrac{1}{1+3x^2}"], correct:0,
+    solution:"Chain rule on $\\frac{d}{dx}\\arctan u=\\frac{u'}{1+u^2}$ with $u=3x,\\ u'=3$: $\\frac{3}{1+(3x)^2}=\\frac{3}{1+9x^2}$." },
+  { n:11, prompt:"\\displaystyle\\lim_{x\\to 0}\\dfrac{1-\\cos(2x)}{x^2} \\text{ (L'Hopital) } =", choices:["2","1","4","0"], correct:0,
+    solution:"Form $\\frac00$. Differentiate: $\\frac{2\\sin(2x)}{2x}=\\frac{\\sin(2x)}{x}$, still $\\frac00$. Differentiate again: $\\frac{2\\cos(2x)}{1}\\to2$ as $x\\to0$." },
+  { n:12, prompt:"\\text{Given } x^2+xy+y^2=7, \\text{ then } \\dfrac{dy}{dx} =", choices:["-\\dfrac{2x+y}{x+2y}","-\\dfrac{x+2y}{2x+y}","\\dfrac{2x+y}{x+2y}","-\\dfrac{2x-y}{x-2y}"], correct:0,
+    solution:"Differentiate: $2x+y+xy'+2yy'=0$. Collect: $y'(x+2y)=-(2x+y)$. So $y'=-\\frac{2x+y}{x+2y}$." },
+  { n:13, prompt:"\\dfrac{d}{dx}\\left[\\sinh^{-1}(2x)\\right] =", choices:["\\dfrac{2}{\\sqrt{4x^2+1}}","\\dfrac{1}{\\sqrt{4x^2+1}}","\\dfrac{2}{\\sqrt{1-4x^2}}","\\dfrac{1}{\\sqrt{x^2+1}}"], correct:0,
+    solution:"Chain rule on $\\frac{d}{dx}\\sinh^{-1}u=\\frac{u'}{\\sqrt{u^2+1}}$ with $u=2x,\\ u'=2$: $\\frac{2}{\\sqrt{4x^2+1}}$." },
+  { n:14, prompt:"\\dfrac{d}{dx}\\left[\\operatorname{sech}(x^2)\\right] =", choices:["-2x\\operatorname{sech}(x^2)\\tanh(x^2)","2x\\operatorname{sech}(x^2)\\tanh(x^2)","-\\operatorname{sech}(x^2)\\tanh(x^2)","2x\\operatorname{sech}^2(x^2)"], correct:0,
+    solution:"Chain rule on $\\frac{d}{dx}\\operatorname{sech}u=-\\operatorname{sech}u\\tanh u\\cdot u'$ with $u=x^2,\\ u'=2x$: $-2x\\operatorname{sech}(x^2)\\tanh(x^2)$." },
+  { n:15, prompt:"\\displaystyle\\lim_{x\\to\\infty}\\left(1+\\dfrac{3}{x}\\right)^{x} =", choices:["e^3","e","3e","1"], correct:0,
+    solution:"Standard pattern $\\left(1+\\frac{k}{x}\\right)^x\\to e^k$ with $k=3$: gives $e^3$." },
+];
+
+const PART2_FILLBLANK = [
+  { n:16, theorem:"Rolle's Theorem",
+    statement:"If $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and ______, then there exists $c \\in (a,b)$ such that $f'(c) = $ ______.",
+    blanks:["$f(a) = f(b)$","$0$"] },
+  { n:17, theorem:"Mean Value Theorem",
+    statement:"If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists $c \\in (a,b)$ such that $f'(c) = $ ______.",
+    blanks:["$\\dfrac{f(b)-f(a)}{b-a}$"] },
+  { n:18, theorem:"Intermediate Value Theorem",
+    statement:"If $f$ is ______ on $[a,b]$ and $N$ is any value between $f(a)$ and $f(b)$, then there exists $c \\in [a,b]$ such that ______.",
+    blanks:["continuous","$f(c) = N$"] },
+  { n:19, theorem:"Bolzano–Weierstrass Theorem",
+    statement:"Every ______ sequence of real numbers has a ______ subsequence.",
+    blanks:["bounded","convergent"] },
+  { n:20, theorem:"Definition — Cauchy Sequence",
+    statement:"A sequence $(a_n)$ is Cauchy if for every $\\varepsilon > 0$ there exists $N \\in \\mathbb{N}$ such that for all $m, n > N$, ______.",
+    blanks:["$|a_n - a_m| < \\varepsilon$"] },
+  { n:21, theorem:"Definition — Convergent Sequence",
+    statement:"A sequence $(a_n)$ converges to $L$ if for every $\\varepsilon > 0$ there exists $N$ such that for all $n > N$, ______.",
+    blanks:["$|a_n - L| < \\varepsilon$"] },
+  { n:22, theorem:"Cauchy Criterion for Convergence (in $\\mathbb{R}$)",
+    statement:"A sequence of real numbers converges if and only if it is ______.",
+    blanks:["Cauchy"] },
+  { n:23, theorem:"Monotone Convergence Theorem",
+    statement:"Every sequence that is ______ and ______ converges.",
+    blanks:["monotonic (increasing or decreasing)","bounded"] },
+  { n:24, theorem:"Extreme Value Theorem",
+    statement:"If $f$ is continuous on the closed, bounded interval $[a,b]$, then $f$ attains both a ______ and a ______ on $[a,b]$.",
+    blanks:["maximum value","minimum value"] },
+  { n:25, theorem:"Definition — Divergent Sequence",
+    statement:"A sequence $(a_n)$ diverges to $+\\infty$ if for every $M \\in \\mathbb{R}$ there exists $N$ such that for all $n > N$, ______.",
+    blanks:["$a_n > M$"] },
+];
+
+const PART3_MCQ = [
+  { n:26, prompt:"\\text{A point } p \\text{ is a limit point of } S \\text{ if every neighborhood of } p", choices:["\\text{contains a point of } S \\text{ different from } p","\\text{is a subset of } S","\\text{contains no points of } S","\\text{equals } \\{p\\}"], correct:0,
+    solution:"Definition of limit point: no matter how small a neighborhood you draw around $p$, it must contain some other point of $S$ besides $p$ itself." },
+  { n:27, prompt:"\\text{The interval } (2,5] \\text{ is}", choices:["\\text{neither open nor closed}","\\text{open}","\\text{closed}","\\text{both open and closed}"], correct:0,
+    solution:"$(2,5]$ excludes $2$ (so it's not closed there) but includes $5$ (so it's not open there) — a half-open interval is neither purely open nor purely closed." },
+  { n:28, prompt:"\\text{A set } S \\text{ is closed if and only if}", choices:["S \\text{ contains all of its limit points}","S \\text{ is bounded}","S \\text{ has no limit points}","S \\text{ is an interval}"], correct:0,
+    solution:"This is the defining property of a closed set: nothing \"leaks out\" — every point the set accumulates toward is already inside it." },
+  { n:29, prompt:"\\text{The sequence } a_n = \\dfrac{n}{n+1} \\text{ is}", choices:["\\text{bounded and convergent}","\\text{unbounded}","\\text{divergent}","\\text{not Cauchy}"], correct:0,
+    solution:"$a_n=\\frac{n}{n+1}=1-\\frac{1}{n+1}\\to1$ as $n\\to\\infty$, and every term lies in $(0,1)$, so it's bounded and convergent." },
+  { n:30, prompt:"\\text{A sequence } (a_n) \\text{ is Cauchy if and only if (in } \\mathbb{R}\\text{) it is}", choices:["\\text{convergent}","\\text{monotonic}","\\text{bounded but not convergent}","\\text{divergent}"], correct:0,
+    solution:"This is the Cauchy Criterion: because $\\mathbb{R}$ is complete, Cauchy sequences and convergent sequences are exactly the same set of sequences." },
+  { n:31, prompt:"\\displaystyle\\lim_{x\\to \\infty}\\left(1+\\dfrac{1}{x}\\right)^{2x} =", choices:["e^2","e","1","\\infty"], correct:0,
+    solution:"Write $\\left(1+\\frac1x\\right)^{2x}=\\left[\\left(1+\\frac1x\\right)^x\\right]^2\\to e^2$ using the standard $\\left(1+\\frac1x\\right)^x\\to e$ limit." },
+  { n:32, prompt:"\\displaystyle\\lim_{x\\to 0^+} x\\ln x =", choices:["0","-\\infty","\\infty","1"], correct:0,
+    solution:"Rewrite as $\\frac{\\ln x}{1/x}$ (form $\\frac{-\\infty}{\\infty}$) and apply L'Hopital: $\\frac{1/x}{-1/x^2}=-x\\to0$ as $x\\to0^+$." },
+  { n:33, prompt:"\\text{A set } S \\subseteq \\mathbb{R} \\text{ is bounded if}", choices:["\\exists M>0 \\text{ such that } |x|\\le M \\ \\forall x\\in S","S \\text{ is finite}","S \\text{ is closed}","S \\text{ has a limit point}"], correct:0,
+    solution:"Definition of bounded: the whole set fits inside some finite range $[-M,M]$." },
+  { n:34, prompt:"\\text{For } f(x)=\\begin{cases} x^2+1, & x<1\\\\ 3x-1, & x\\ge 1\\end{cases}, \\displaystyle\\lim_{x\\to 1}f(x) =", choices:["2","3","1","\\text{does not exist}"], correct:0,
+    solution:"Left limit: as $x\\to1^-$, $x^2+1\\to2$. Right limit: as $x\\to1^+$, $3x-1\\to2$. Both sides agree at $2$, so the limit exists and equals $2$." },
+  { n:35, prompt:"\\text{The set } \\left\\{ \\dfrac{(-1)^n}{n} : n \\in \\mathbb{N} \\right\\} \\text{ has limit point(s)}", choices:["\\{0\\}","\\{-1,1\\}","\\emptyset","\\{1\\}"], correct:0,
+    solution:"As $n\\to\\infty$, $\\frac{(-1)^n}{n}\\to0$ regardless of the sign — terms get arbitrarily close to $0$ from both sides, making $0$ the unique limit point." },
+];
+
+if (typeof module !== "undefined") module.exports = { PART1_MCQ, PART2_FILLBLANK, PART3_MCQ };
+
+</script>
+<script>
+(function(){
+  "use strict";
+
+  // Build unified question list with part boundaries
+  const ALL_Q = [];
+  PART1_MCQ.forEach(q => ALL_Q.push({ type:"mcq", part:1, ...q }));
+  PART2_FILLBLANK.forEach(q => ALL_Q.push({ type:"fib", part:2, ...q }));
+  PART3_MCQ.forEach(q => ALL_Q.push({ type:"mcq", part:3, ...q }));
+
+  const PART_COLOR = { 1: "var(--clay-blue)", 2: "var(--slate)", 3: "var(--clay-mint)" };
+  const PART_LABEL = { 1: "PART 1 — TECHNIQUES", 2: "PART 2 — THEOREMS", 3: "PART 3 — ANALYSIS" };
+
+  let answers = {}; // { n: { selected: idx } } for mcq, { n: { revealed: bool } } for fib
+  let currentIdx = 0;
+
+  function switchView(name){
+    document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+    document.getElementById("view-"+name).classList.add("active");
+  }
+
+  function renderKatexIn(el){
+    // basic $...$ inline renderer for fill-in-blank statements
+    if(window.renderMathInElement){
+      renderMathInElement(el, {
+        delimiters: [{left:"$", right:"$", display:false}],
+        throwOnError: false
+      });
+    }
+  }
+
+  function renderQuestion(){
+    const q = ALL_Q[currentIdx];
+    const card = document.getElementById("qcard");
+    card.style.setProperty("--part-color", PART_COLOR[q.part]);
+    document.getElementById("partPill").textContent = PART_LABEL[q.part];
+    document.getElementById("partPill").style.background = PART_COLOR[q.part];
+    document.getElementById("qCounter").textContent = `Question ${q.n} / 35`;
+    document.getElementById("progressFill").style.width = `${(currentIdx/ALL_Q.length)*100}%`;
+
+    if(q.type === "mcq"){
+      card.innerHTML = `
+        <div class="qnum-badge">${q.n}</div>
+        <div class="qprompt" id="qpromptMath"></div>
+        <div class="choices" id="qChoices"></div>
+      `;
+      const promptEl = document.getElementById("qpromptMath");
+      katex.render(q.prompt, promptEl, { throwOnError:false, displayMode:true });
+
+      const grid = document.getElementById("qChoices");
+      const letters = ["A","B","C","D"];
+      const prevAnswer = answers[q.n];
+      q.choices.forEach((c, idx) => {
+        const btn = document.createElement("div");
+        btn.className = "choice" + (prevAnswer && prevAnswer.selected === idx ? " selected" : "");
+        btn.innerHTML = `<span class="letter">${letters[idx]}</span><span class="ctext"></span>`;
+        katex.render(c, btn.querySelector(".ctext"), { throwOnError:false });
+        btn.addEventListener("click", () => {
+          answers[q.n] = { selected: idx };
+          document.querySelectorAll("#qChoices .choice").forEach(el => el.classList.remove("selected"));
+          btn.classList.add("selected");
+          updateDotNav();
+        });
+        grid.appendChild(btn);
+      });
+    } else {
+      // fill-in-the-blank
+      card.innerHTML = `
+        <div class="qnum-badge">${q.n}</div>
+        <div class="fib-theorem-tag">${q.theorem}</div>
+        <div class="fib-statement" id="fibStatement"></div>
+        <div class="fib-hint">Type your answer in each box, or check "reveal" to compare against the model answer — this part isn't auto-graded, understanding matters more than exact wording.</div>
+        <div class="cta-row" style="margin-top:14px;">
+          <button class="btn btn-ghost" id="revealBtn" style="padding:10px 18px; font-size:12.5px;">Reveal model answer</button>
+        </div>
+        <div id="fibAnswer" style="display:none; margin-top:14px; font-family:var(--font-mono); font-size:13px; background:#fff; border:2.5px solid var(--ink); border-radius:12px; padding:14px; box-shadow:3px 3px 0 0 var(--ink);"></div>
+      `;
+      let html = q.statement;
+      q.blanks.forEach((b, i) => {
+        html = html.replace("______", `<input type="text" class="blank-input" data-blank="${i}" placeholder="blank ${i+1}">`);
+      });
+      document.getElementById("fibStatement").innerHTML = html;
+      renderKatexIn(document.getElementById("fibStatement"));
+
+      // restore prior text if any
+      const prev = answers[q.n];
+      if(prev && prev.text){
+        document.querySelectorAll("#fibStatement .blank-input").forEach((inp,i) => {
+          inp.value = prev.text[i] || "";
+        });
+      }
+      document.querySelectorAll("#fibStatement .blank-input").forEach(inp => {
+        inp.addEventListener("input", () => {
+          if(!answers[q.n]) answers[q.n] = {};
+          if(!answers[q.n].text) answers[q.n].text = [];
+          answers[q.n].text[parseInt(inp.dataset.blank,10)] = inp.value;
+          updateDotNav();
+        });
+      });
+
+      document.getElementById("revealBtn").addEventListener("click", () => {
+        const ansBox = document.getElementById("fibAnswer");
+        ansBox.style.display = "block";
+        ansBox.innerHTML = "<strong>Model answer:</strong> " + q.blanks.map((b,i)=>`Blank ${i+1}: ${b}`).join(" &nbsp;&middot;&nbsp; ");
+        renderKatexIn(ansBox);
+        if(!answers[q.n]) answers[q.n] = {};
+        answers[q.n].revealed = true;
+        updateDotNav();
+      });
+    }
+
+    document.getElementById("prevBtn").disabled = currentIdx === 0;
+    document.getElementById("nextBtn").textContent = currentIdx === ALL_Q.length-1 ? "Finish \u2192" : "Next \u2192";
+    updateDotNav();
+  }
+
+  function updateDotNav(){
+    const nav = document.getElementById("dotNav");
+    nav.innerHTML = "";
+    ALL_Q.forEach((q, idx) => {
+      const dot = document.createElement("div");
+      const isAnswered = !!answers[q.n] && (answers[q.n].selected !== undefined || answers[q.n].revealed || (answers[q.n].text && answers[q.n].text.some(t=>t && t.trim())));
+      dot.className = "dot" + (isAnswered ? " answered" : "") + (idx === currentIdx ? " current" : "");
+      dot.textContent = q.n;
+      dot.addEventListener("click", () => { currentIdx = idx; renderQuestion(); });
+      nav.appendChild(dot);
+    });
+  }
+
+  document.getElementById("startExam").addEventListener("click", () => {
+    currentIdx = 0;
+    answers = {};
+    switchView("exam");
+    renderQuestion();
+  });
+
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    if(currentIdx > 0){ currentIdx--; renderQuestion(); }
+  });
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    if(currentIdx < ALL_Q.length - 1){ currentIdx++; renderQuestion(); }
+    else { finishExam(); }
+  });
+
+  function finishExam(){
+    let p1Correct = 0, p3Correct = 0;
+    const reviewData = [];
+
+    PART1_MCQ.forEach(q => {
+      const a = answers[q.n];
+      const isCorrect = a && a.selected === q.correct;
+      if(isCorrect) p1Correct++;
+      reviewData.push({ q, type:"mcq", isCorrect, selected: a ? a.selected : null });
+    });
+    PART3_MCQ.forEach(q => {
+      const a = answers[q.n];
+      const isCorrect = a && a.selected === q.correct;
+      if(isCorrect) p3Correct++;
+      reviewData.push({ q, type:"mcq", isCorrect, selected: a ? a.selected : null });
+    });
+
+    const totalMcq = PART1_MCQ.length + PART3_MCQ.length;
+    const totalCorrect = p1Correct + p3Correct;
+
+    document.getElementById("finalScore").textContent = `${totalCorrect}/${totalMcq}`;
+    document.getElementById("p1score").textContent = `${p1Correct}/${PART1_MCQ.length}`;
+    document.getElementById("p3score").textContent = `${p3Correct}/${PART3_MCQ.length}`;
+
+    let p2Done = 0;
+    PART2_FILLBLANK.forEach(q => { if(answers[q.n]) p2Done++; });
+    document.getElementById("p2score").textContent = `${p2Done}/${PART2_FILLBLANK.length} attempted`;
+
+    // Build review list (MCQ only, since FIB is self-graded)
+    const reviewList = document.getElementById("reviewList");
+    reviewList.innerHTML = "";
+    reviewData.sort((a,b) => a.q.n - b.q.n);
+    reviewData.forEach(({q, isCorrect, selected}) => {
+      const div = document.createElement("div");
+      const status = selected === null ? "skipped" : (isCorrect ? "correct" : "wrong");
+      div.className = "review-item " + status;
+      const tagText = status === "skipped" ? "SKIPPED" : (isCorrect ? "CORRECT" : "MISSED");
+      div.innerHTML = `
+        <span class="rtag">Q${q.n} &middot; ${tagText}</span>
+        <div class="rq"></div>
+        ${selected !== null ? `<div class="ryour"></div>` : ""}
+        <div class="rcorrect"></div>
+        ${q.solution ? `<div class="r-solution"><div class="rs-label">&#128161; How to solve it</div><div class="rs-body"></div></div>` : ""}
+      `;
+      katex.render(q.prompt, div.querySelector(".rq"), { throwOnError:false, displayMode:true });
+      if(selected !== null){
+        const yourEl = div.querySelector(".ryour");
+        yourEl.innerHTML = "Your answer: ";
+        const span = document.createElement("span");
+        katex.render(q.choices[selected], span, { throwOnError:false });
+        yourEl.appendChild(span);
+      }
+      const correctEl = div.querySelector(".rcorrect");
+      correctEl.innerHTML = "Correct answer: ";
+      const cspan = document.createElement("span");
+      katex.render(q.choices[q.correct], cspan, { throwOnError:false });
+      correctEl.appendChild(cspan);
+      if(q.solution){
+        const rsBody = div.querySelector(".rs-body");
+        rsBody.innerHTML = q.solution;
+        renderKatexIn(rsBody);
+      }
+      reviewList.appendChild(div);
+    });
+
+    switchView("results");
+  }
+
+  document.getElementById("retakeBtn").addEventListener("click", () => {
+    currentIdx = 0; answers = {};
+    switchView("intro");
+  });
+  document.getElementById("reviewToggle").addEventListener("click", (e) => {
+    const list = document.getElementById("reviewList");
+    const showing = list.style.display !== "none";
+    list.style.display = showing ? "none" : "grid";
+    e.target.textContent = showing ? "Show full review" : "Hide full review";
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if(!document.getElementById("view-exam").classList.contains("active")) return;
+    if(["1","2","3","4"].includes(e.key)){
+      const choiceEls = document.querySelectorAll("#qChoices .choice");
+      const pos = parseInt(e.key,10)-1;
+      if(choiceEls[pos]) choiceEls[pos].click();
+    }
+  });
+
+  // ============================================================
+  // Calculus with Asante! decorative chalk-symbol background
+  // ============================================================
+  function renderChalkSymbols(){
+    const symbols = ["\u222B","\u2202","\u03A3","lim","\u221E","dx","d/dx","\u0394","\u2211","\u2207","MVT","IVT","\u03B5","\u03B4","c\u2208(a,b)"];
+    const container = document.getElementById("chalkSymbols");
+    if(!container) return;
+    let seed = 7;
+    function rnd(){ seed = (seed*9301+49297)%233280; return seed/233280; }
+    const frag = document.createDocumentFragment();
+    for(let i=0;i<16;i++){
+      const s = document.createElement("span");
+      s.textContent = symbols[Math.floor(rnd()*symbols.length)];
+      s.style.left = (rnd()*96)+"vw";
+      s.style.top = (rnd()*340)+"vh";
+      s.style.fontSize = (22+rnd()*44)+"px";
+      s.style.transform = `rotate(${(rnd()*40-20).toFixed(1)}deg)`;
+      frag.appendChild(s);
+    }
+    container.appendChild(frag);
+  }
+  renderChalkSymbols();
+
+})();
+</script>
+
+</body>
+</html>

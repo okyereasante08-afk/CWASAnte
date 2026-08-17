@@ -1,0 +1,128 @@
+.concepts-page {
+  padding: 52px 0 88px;
+}
+
+.concepts-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 44px;
+}
+
+.concepts-title {
+  font-size: clamp(30px, 4vw, 40px);
+  margin: 16px 0 14px;
+}
+
+.concepts-sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 26px;
+  font-weight: 500;
+}
+
+.concepts-search {
+  width: 100%;
+  max-width: 420px;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 14.5px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  border: none;
+  background: var(--paper);
+  box-shadow: var(--clay-pressed);
+  color: var(--ink);
+}
+
+.concepts-search::placeholder { color: var(--ink-faint); }
+
+.concepts-search:focus {
+  outline: none;
+  box-shadow: var(--clay-pressed), 0 0 0 3px var(--slate-tint);
+}
+
+.concepts-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--ink-faint);
+  font-size: 14px;
+}
+
+.concept-group-section {
+  margin-bottom: 44px;
+}
+
+.concept-group-heading {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.concept-category {
+  margin-bottom: 30px;
+}
+
+.concept-category-label {
+  font-size: 17px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--slate);
+  margin-bottom: 7px;
+}
+
+.concept-category-intro {
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  line-height: 1.55;
+  margin-bottom: 16px;
+  max-width: 72ch;
+  font-weight: 500;
+}
+
+.concept-terms {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.concept-term-card {
+  background: var(--surface);
+  border-radius: var(--clay-radius);
+  padding: 18px 20px;
+  box-shadow: var(--clay-raised-sm);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.concept-term-card:hover {
+  box-shadow: var(--clay-hover);
+  transform: translateY(-2px);
+}
+
+.concept-term-name {
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  font-weight: 700;
+  margin-bottom: 9px;
+  color: var(--ink);
+}
+
+.concept-term-def {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.concept-term-def .katex,
+.concept-term-name .katex { font-size: 1em; }
+
+@media (max-width: 720px) {
+  .concept-terms { grid-template-columns: 1fr; }
+}
