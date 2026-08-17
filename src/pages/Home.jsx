@@ -11,14 +11,14 @@ const SECTIONS = [
   },
   {
     to: '/exam-prep',
-    title: 'Exam Prep',
+    title: 'End Of Sem Prep',
     desc: 'A 35-question mock exam matching the real end-of-sem format: technique MCQs, fill-in-the-blank theorems, and analysis questions.',
     tag: 'Mock Exam',
   },
   {
     to: '/learning-hub',
     title: 'Learning Hub',
-    desc: 'Topic booklets, slide decks, and video resources \u2014 organized by subject so you can go deep on whatever you\u2019re stuck on.',
+    desc: 'Topic booklets, slide decks, and video resources organized by subject so you can go deep on whatever you are stuck on.',
     tag: 'Resources',
   },
   {
@@ -43,7 +43,9 @@ export default function Home() {
           <Reveal delay={0.16}>
             <p className="hero-sub">
               Quiz drills, mock exams, topic booklets, and a glossary that actually explains the reasoning
-              — not just the formula. Compiled and taught by Asante.
+              — not just the formula.
+              
+              Compiled and taught by Asante.
             </p>
           </Reveal>
           <Reveal delay={0.24}>
