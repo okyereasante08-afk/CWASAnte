@@ -159,15 +159,8 @@ Contributions from fellow KNUST students are highly encouraged! Whether you are 
 
 ## 🎓 Administration & Credits
 
-Developed and maintained by Asante Kwaku Okyere. Peer review sessions and voice-note concept explanations are co-administered alongside John.
+Developed and maintained by Asante Kwaku Okyere. Peer review sessions and voice-note concept explanations are co-administered alongside John Luther.
 
 ```
-
-### Suggestions for your repository:
-* If you have a live Vercel link for this Vite version, you can add it to the very top (e.g., `Accessible live at [cwasante.vercel.app](https://cwasante.vercel.app)`).
-* Since this is a Vite app, deploying it just requires pointing Vercel to the `dist` folder. If contributors ask how it's hosted, it's virtually maintenance-free!
-
-1. Should I add a specific "Deployment to Vercel" step-by-step section to the README?
-2. Do you want to include placeholder links for UI screenshots in this version as well?
 
 ```
